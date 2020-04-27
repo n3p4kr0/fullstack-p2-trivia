@@ -184,7 +184,7 @@ def create_app(test_config=None):
       abort(404)
     
     if category == 0:
-      questions = Question.query.order_by(Question.id).all().filter(Question.id.notin_(previous_questions)).all()
+      questions = Question.query.order_by(Question.id).filter(Question.id.notin_(previous_questions)).all()
       
     
     else:
