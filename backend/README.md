@@ -83,6 +83,23 @@ One note before you delve into your tasks: for each endpoint you are expected to
 }
 ```
 
+* POST "/categories"
+    - Adds a new category to the database
+    - Request Body:
+    
+    `type`: The Category's type
+    - Response Body:
+    
+    `created`: Created category ID
+
+    `categories`: List of all categories, including the created one
+
+    `total_categories`: Number of questions after addition
+```json
+{
+  ""
+}
+
 * GET "/questions?page=1"
     - Fetches the questions to be displayed on the page using page number
     - Request Parameters: `page`: Page number (optional, defaults to 1)
