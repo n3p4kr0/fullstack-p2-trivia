@@ -36,7 +36,13 @@ class TriviaTestCase(unittest.TestCase):
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
-        self.assertTrue(len(data['categories']), 6)
+    
+    def test_create_category_successful(self):
+        res = self.client().post('/categories', json={'type': 'Example'})
+        data = json.loads(res.data)
+        
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(data['success'], True)
 
     # TESTS FOR QUESTIONS
 
@@ -55,7 +61,7 @@ class TriviaTestCase(unittest.TestCase):
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 404)
-        self.assertEqual(data['success'], False)
+        self.assertEqual(data['success'], False)        
 
     def test_search_questions_with_results(self):
         res = self.client().post('/questions', json={'searchTerm': 'title'})
