@@ -164,7 +164,6 @@ def create_app(test_config=None):
                 return jsonify({
                     "success": True,
                     "created": question.id,
-                    "questions": questions,
                     "total_questions": len(questions)
                 })
 
@@ -220,8 +219,7 @@ def create_app(test_config=None):
 
         return jsonify({
             'success': True,
-            'question': question,
-            'quiz_category': category,
+            'question': question
         })
 
     @app.errorhandler(404)
